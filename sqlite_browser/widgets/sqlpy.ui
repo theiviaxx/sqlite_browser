@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PySQLite Browser</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../icons/res.qrc">
+    <normaloff>:/icons/256px-Sqlite-square-icon.svg.png</normaloff>:/icons/256px-Sqlite-square-icon.svg.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#tbDatabases &gt; QWidget {
+background: url(:icons/bg.png);
+}
+#wToolbar {
+background: #d2d9e2;
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tbDatabases">
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>899</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionNew_Memory_Database"/>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionNew_Query_Editor"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionClose_All"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuDatabase">
+    <property name="title">
+     <string>Database</string>
+    </property>
+    <addaction name="actionEmpty_Database"/>
+   </widget>
+   <widget class="QMenu" name="menuTable">
+    <property name="title">
+     <string>Table</string>
+    </property>
+    <addaction name="actionRename_Table"/>
+    <addaction name="separator"/>
+    <addaction name="actionTruncate_Table"/>
+    <addaction name="actionDrop_Table"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionExecute_Script"/>
+    <addaction name="actionHistory"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDatabase"/>
+   <addaction name="menuTable"/>
+   <addaction name="menuTools"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionRefresh"/>
+   <addaction name="separator"/>
+   <addaction name="actionExecute_All_Queries"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Database</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/database_add.png</normaloff>:/icons/database_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Database</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Close Database</string>
+   </property>
+  </action>
+  <action name="actionClose_All">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/cross.png</normaloff>:/icons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close All Databases</string>
+   </property>
+  </action>
+  <action name="actionExecute_Current_Query">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/script.png</normaloff>:/icons/script.png</iconset>
+   </property>
+   <property name="text">
+    <string>Execute Current Query</string>
+   </property>
+   <property name="toolTip">
+    <string>Execute Current Query</string>
+   </property>
+  </action>
+  <action name="actionExecute_All_Queries">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/script_go.png</normaloff>:/icons/script_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Execute All Queries</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/database_refresh.png</normaloff>:/icons/database_refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+  </action>
+  <action name="actionBackup">
+   <property name="text">
+    <string>Backup</string>
+   </property>
+  </action>
+  <action name="actionExport_DB">
+   <property name="text">
+    <string>Export DB</string>
+   </property>
+  </action>
+  <action name="actionTruncate_Table">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Truncate Table</string>
+   </property>
+  </action>
+  <action name="actionNew_Query_Editor">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/script_add.png</normaloff>:/icons/script_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Query Editor</string>
+   </property>
+  </action>
+  <action name="actionNew_Memory_Database">
+   <property name="text">
+    <string>New In-Memory Database</string>
+   </property>
+  </action>
+  <action name="actionEmpty_Database">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Empty Database</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionCreate_Table">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_add.png</normaloff>:/icons/table_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Table</string>
+   </property>
+  </action>
+  <action name="actionDrop_Table">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_delete.png</normaloff>:/icons/table_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop Table</string>
+   </property>
+  </action>
+  <action name="actionRename_Table">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rename Table</string>
+   </property>
+  </action>
+  <action name="actionReorder_Columns">
+   <property name="text">
+    <string>Reorder Columns</string>
+   </property>
+  </action>
+  <action name="actionExport_2">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionImport_2">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionExecute_Script">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/script_code_red.png</normaloff>:/icons/script_code_red.png</iconset>
+   </property>
+   <property name="text">
+    <string>Execute Script</string>
+   </property>
+  </action>
+  <action name="actionHistory">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/calendar_view_day.png</normaloff>:/icons/calendar_view_day.png</iconset>
+   </property>
+   <property name="text">
+    <string>History</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/bricks.png</normaloff>:/icons/bricks.png</iconset>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/cog.png</normaloff>:/icons/cog.png</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/information.png</normaloff>:/icons/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../icons/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

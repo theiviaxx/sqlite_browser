@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>338</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Form {
+background: #293955;
+}
+#wToolbar {
+background: #d2d9e2;
+}
+QTableView { gridline-color: #b4b4b4; }</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="wToolbar">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="bExportData">
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/application_go.png</normaloff>:/icons/application_go.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bCopyData">
+        <property name="styleSheet">
+         <string notr="true">margin-right: 4;</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/table_go.png</normaloff>:/icons/table_go.png</iconset>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::InstantPopup</enum>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_3">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/spacer.png</normaloff>:/icons/spacer.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>7</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bInsertRow">
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/table_row_insert.png</normaloff>:/icons/table_row_insert.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bDuplicateRows">
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/table_multiple.png</normaloff>:/icons/table_multiple.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bSaveChanges">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>Save changes</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/disk.png</normaloff>:/icons/disk.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bRemoveSelectedRows">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>Delete selected rows</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/table_row_delete.png</normaloff>:/icons/table_row_delete.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bDiscardChanges">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>Discard changes</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/cross.png</normaloff>:/icons/cross.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/spacer.png</normaloff>:/icons/spacer.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>7</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bGridView">
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/application_grid.png</normaloff>:/icons/application_grid.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bTableView">
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/application_view_columns.png</normaloff>:/icons/application_view_columns.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QToolButton" name="bRefresh">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string>Refesh data</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/res.qrc">
+          <normaloff>:/icons/table_refresh.png</normaloff>:/icons/table_refresh.png</iconset>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="ckLimit">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Limit rows</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string># of rows </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="iLimit">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="value">
+         <number>1000</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="twGrid">
+     <property name="styleSheet">
+      <string notr="true">QTableView::item::selected {
+background: #dddceb;
+}</string>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="tTable">
+     <property name="font">
+      <font>
+       <family>Courier New</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QPlainTextEdit::NoWrap</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+color: #fff;
+}</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Database:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lDatabase">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Table:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lTable">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionExportData">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/application_go.png</normaloff>:/icons/application_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export as </string>
+   </property>
+  </action>
+  <action name="actionCopy_Data">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_go.png</normaloff>:/icons/table_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy Data</string>
+   </property>
+  </action>
+  <action name="actionInsert_Row">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_row_insert.png</normaloff>:/icons/table_row_insert.png</iconset>
+   </property>
+   <property name="text">
+    <string>Insert new row</string>
+   </property>
+  </action>
+  <action name="actionDuplicateRow">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_multiple.png</normaloff>:/icons/table_multiple.png</iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate Current Row</string>
+   </property>
+   <property name="toolTip">
+    <string>Duplicate Current Row</string>
+   </property>
+  </action>
+  <action name="actionSave_changes">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/disk.png</normaloff>:/icons/disk.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save changes</string>
+   </property>
+  </action>
+  <action name="actionDelete_Row">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_row_delete.png</normaloff>:/icons/table_row_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete selected row</string>
+   </property>
+  </action>
+  <action name="actionDiscard_changes">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/cross.png</normaloff>:/icons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Discard changes</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/table_refresh.png</normaloff>:/icons/table_refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+  </action>
+  <action name="actionGrid_View">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/application_grid.png</normaloff>:/icons/application_grid.png</iconset>
+   </property>
+   <property name="text">
+    <string>Grid View</string>
+   </property>
+  </action>
+  <action name="actionTable_View">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons/res.qrc">
+     <normaloff>:/icons/application_view_columns.png</normaloff>:/icons/application_view_columns.png</iconset>
+   </property>
+   <property name="text">
+    <string>Table View</string>
+   </property>
+  </action>
+  <action name="actionCopy_Cell">
+   <property name="text">
+    <string>Copy Cell Data to Clipboard</string>
+   </property>
+  </action>
+  <action name="actionCopy_Table">
+   <property name="text">
+    <string>Copy Table to Clipboard</string>
+   </property>
+  </action>
+  <action name="actionCopy_Selected">
+   <property name="text">
+    <string>Copy Selected Row(s) to Clipboard</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../icons/res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>ckLimit</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>iLimit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>8</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>17</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
